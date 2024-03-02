@@ -15,30 +15,6 @@
       "email": "ramirezmica@gmail.com",
       "password": "lulurami",
       "role": "alumno"
-    },
-    {
-      "id": "4",
-      "firstName": "Julieta",
-      "lastName": "Zagame",
-      "email": "julizagame@gmail.com",
-      "password": "julieta55",
-      "role": "alumno'"
-    },
-    {
-      "id": "6",
-      "firstName": "Marcos",
-      "lastName": "Cabrera",
-      "email": "mc2020@gmail.com",
-      "password": "1995markin",
-      "role": "alumno'"
-    },
-    {
-      "id": "1709406535474",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
     }
   ],
   "cursos": [
@@ -78,7 +54,7 @@
   "inscriptions": [
     {
       "id": "1",
-      "userId": "6",
+      "userId": null,
       "courseId": "4"
     },
     {
