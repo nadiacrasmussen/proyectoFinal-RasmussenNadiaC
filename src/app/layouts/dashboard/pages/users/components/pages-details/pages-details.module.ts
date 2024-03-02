@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PagesDetailsComponent } from './pages-details.component';
-import { loadingService } from '../../../../core/service/loading.service';
+import { loadingService } from '../../../../../../core/service/loading.service';
 import { Routes, Router, RouterModule } from '@angular/router';
 
 const routes: Routes = [

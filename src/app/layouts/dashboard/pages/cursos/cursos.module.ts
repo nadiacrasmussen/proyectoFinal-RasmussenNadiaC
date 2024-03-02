@@ -1,23 +1,27 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { CursosRoutingModule } from './cursos-routing.module';
 import { CursosComponent } from './cursos.component';
+import { MatTableModule } from '@angular/material/table';
+import { PipesModule } from '../pipes/pipes.module';
 import { SharedModule } from '../../../../shared/shared.module';
-import { cursosService } from './cursos.service';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { CursosMapReducer } from './store/cursos.map';
-import { CursosEffects } from './store/cursos.effects';
+import { FormCursosComponent } from './components/form-cursos/form-cursos.component';
+import { TableCursosComponent } from './components/table-cursos/table-cursos.component';
+import { MatDatepickerModule } from '@angular/material/datepicker'
 
 
 @NgModule({
-  declarations: [CursosComponent],
-  imports: [CommonModule, CursosRoutingModule, SharedModule,
-    StoreModule.forFeature('cursos', CursosMapReducer),
-    EffectsModule.forFeature([
-      CursosEffects
-    ])],
-  providers: [cursosService],
+  declarations: [
+    CursosComponent,
+    FormCursosComponent,
+    TableCursosComponent,
+  ],
+  imports: [
+    CursosRoutingModule,
+    MatTableModule,
+    PipesModule,
+    SharedModule, MatDatepickerModule
+  ],
+
+
 })
-export class CursosModule {}
+export class CursosModule { }

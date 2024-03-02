@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "id": "1",
-      "firstName": "Nadia",
-      "lastName": "Rasmussen",
-      "email": "nadiacrasmussen@gmail.com",
-      "password": "nadia123",
-      "role": "alumno"
-    },
-    {
       "id": "2",
       " firstName": "Daiana",
       "lastName": " Marquez",
@@ -39,6 +31,14 @@
       "email": "mc2020@gmail.com",
       "password": "1995markin",
       "role": "alumno'"
+    },
+    {
+      "id": "1709406535474",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
     }
   ],
   "cursos": [
@@ -75,17 +75,16 @@
       "duracion": "4 Meses"
     }
   ],
-    "inscriptions": [
-      {
-        "id": "1",
-        "userId": "6",
-        "courseId": "4"
-      },
-      {
-        "id": "2",
-        "userId": "3",
-        "courseId": "2"
-      }
-
+  "inscriptions": [
+    {
+      "id": "1",
+      "userId": "6",
+      "courseId": "4"
+    },
+    {
+      "id": "2",
+      "userId": "3",
+      "courseId": "2"
+    }
   ]
 }

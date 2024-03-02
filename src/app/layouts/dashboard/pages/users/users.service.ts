@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './models';
 import { Observable, delay, mergeMap, of, tap } from 'rxjs';
 import { enviroment } from '../../../../../enviroments/enviroments';
+import { Inscription } from '../inscriptions/store/models';
 
 let USERS_DB: User[] = [];
 let ROLES_DB: String[] = ['ADMIN', 'USER'];
@@ -33,6 +34,10 @@ export class UsersService {
   deleteUser(userID:string) {
     USERS_DB = USERS_DB.filter((User) => User.id !== userID);
     return this.httpClient.delete(`${enviroment.apiUrl}/users/${userID}`);
-  }}
+  }
 
 
+
+  getAllSubscribers(): Observable<Inscription[]>{
+    return this.httpClient.get<Inscription[]>(`${enviroment.apiUrl}/users?role=SUBSCRIBED`)
+  };}

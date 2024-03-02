@@ -1,12 +1,12 @@
 import { User } from "../../../users/models";
-import { cursos } from '../../../cursos/models/index';
+import { Curso } from '../../../cursos/models/index';
 
 export interface Inscription {
   id: string | number;
   userId: string | number;
   productId: string | number;
   user?: User;
-  course?: cursos;
+  course?: Curso;
 }
 
 export interface CreateInscriptionData {

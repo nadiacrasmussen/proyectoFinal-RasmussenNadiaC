@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable, Subscriber, Subscription } from 'rxjs';
-import { loadingService } from '../../../../core/service/loading.service';
-import { User } from '../users/models';
-import { UsersService } from '../users/users.service';
+import { loadingService } from '../../../../../../core/service/loading.service';
+import { User } from '../../models';
+import { UsersService } from '../../users.service';
 
 @Component({
   selector: 'app-pages-details',
