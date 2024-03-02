@@ -1,0 +1,53 @@
+<mat-drawer-container class="example-container" autosize>
+
+  <mat-drawer #drawer class="dashboard-sidenav" mode="side">
+<mat-nav-list>
+  <a  #homeLink="routerLinkActive"
+  routerLinkActive
+  [activated]="homeLink.isActive"
+   routerLink="dashboard" mat-list-item class="opciones">Inicio</a>
+
+  <a
+  #usersLink="routerLinkActive"
+  routerLinkActive
+  [activated]="usersLink.isActive"
+   routerLink="users"
+   mat-list-item  class="opciones">Usuarios</a>
+
+   <a
+  #cursosLink="routerLinkActive"
+  routerLinkActive
+  [activated]="cursosLink.isActive"
+   routerLink="cursos"
+   mat-list-item  class="opciones">Cursos</a>
+   <a
+   #inscriptionsLink="routerLinkActive"
+   routerLinkActive
+   [activated]="inscriptionsLink.isActive"
+    routerLink="inscriptions"
+    mat-list-item class="opciones">Inscripciones</a>
+
+  <a    (click)="logout()" mat-list-item class="opciones">Cerrar sesion</a>
+
+</mat-nav-list>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <mat-toolbar class="toolbar">
+      <button (click)="drawer.toggle()" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="titulo">Good learning</span>
+      <span class="example-spacer"></span>
+
+
+    </mat-toolbar>
+
+    <div class="p-3">
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+
+</mat-drawer-container>

@@ -1,0 +1,118 @@
+{
+  "users": [
+    {
+      "id": "1709339901918",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
+    },
+    {
+      "id": "1709339904230",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
+    },
+    {
+      "id": "1709339919465",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
+    },
+    {
+      "id": "1709339920467",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
+    },
+    {
+      "id": "1709340248010",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
+    },
+    {
+      "id": "1709340733504",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
+    },
+    {
+      "id": "1709340735918",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
+    },
+    {
+      "id": "1709340736444",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
+    },
+    {
+      "id": "1709340736666",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
+    },
+    {
+      "id": "1709340736868",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
+    },
+    {
+      "id": "1709340737050",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
+    },
+    {
+      "id": "1709341066390",
+      "firstName": "",
+      "lastName": "",
+      "email": "macarenasartorio@gmail.com",
+      "password": "ms1503",
+      "role": ""
+    }
+  ],
+  "cursos": [
+    {
+      "id": "2",
+      "nombre": "Capacitacion de Nutricion deportiva",
+      "fechaDeInicio": " (04/04/2024)",
+      "fechaDeFin": "(30/06/2024')",
+      "horario": "Martes y Jueves 15.30hs a 20.30hs",
+      "duracion": "2 Meses"
+    },
+    {
+      "id": "3",
+      "nombre": "Instructurado de musculacion y entrenamiento funcional",
+      "fechaDeInicio": "(01/04/2024')",
+      "fechaDeFin": "(29/11/2024')",
+      "horario": "Martes y Jueves 14hs a 17hs",
+      "duracion": "8 Meses"
+    }
+  ]
+}

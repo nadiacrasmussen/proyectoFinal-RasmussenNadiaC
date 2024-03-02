@@ -1,0 +1,14 @@
+.app-loading{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.122);
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.wrapper{
+  width: 100%;
+  height: 100%;
+}

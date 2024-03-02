@@ -1,0 +1,48 @@
+<div class="formulario">
+  <h1  appFontSize>Registrar Alumno</h1>
+  <form [formGroup]="userForm" (ngSubmit)="onsubmit()" class="example-form">
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input formControlName="firstName" matInput>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Apellido</mat-label>
+          <input formControlName="lastName" matInput>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput type="email">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Contraseña</mat-label>
+          <input formControlName="password" matInput type="password">
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <mat-form-field class="example-full-width">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="role" [(value)]="selected">
+            <mat-option value="Alumno">Alumno</mat-option>
+            <mat-option value="Profesor">Profesor</mat-option>
+            <mat-option value="Admin">Admin</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <button mat-flat-button class="registrar">Registrar</button>
+</form>
+</div>
