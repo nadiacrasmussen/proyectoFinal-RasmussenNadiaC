@@ -1,118 +1,91 @@
 {
   "users": [
     {
-      "id": "1709339901918",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
+      "id": "1",
+      "firstName": "Nadia",
+      "lastName": "Rasmussen",
+      "email": "nadiacrasmussen@gmail.com",
+      "password": "nadia123",
+      "role": "alumno"
     },
     {
-      "id": "1709339904230",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
+      "id": "2",
+      " firstName": "Daiana",
+      "lastName": " Marquez",
+      "email": "daimarquez@gmail.com",
+      "password": "dai1548",
+      "role": "alumno"
     },
     {
-      "id": "1709339919465",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
+      "id": "3",
+      "firstName": "Micaela",
+      "lastName": "Ramirez",
+      "email": "ramirezmica@gmail.com",
+      "password": "lulurami",
+      "role": "alumno"
     },
     {
-      "id": "1709339920467",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
+      "id": "4",
+      "firstName": "Julieta",
+      "lastName": "Zagame",
+      "email": "julizagame@gmail.com",
+      "password": "julieta55",
+      "role": "alumno'"
     },
     {
-      "id": "1709340248010",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
-    },
-    {
-      "id": "1709340733504",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
-    },
-    {
-      "id": "1709340735918",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
-    },
-    {
-      "id": "1709340736444",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
-    },
-    {
-      "id": "1709340736666",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
-    },
-    {
-      "id": "1709340736868",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
-    },
-    {
-      "id": "1709340737050",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
-    },
-    {
-      "id": "1709341066390",
-      "firstName": "",
-      "lastName": "",
-      "email": "macarenasartorio@gmail.com",
-      "password": "ms1503",
-      "role": ""
+      "id": "6",
+      "firstName": "Marcos",
+      "lastName": "Cabrera",
+      "email": "mc2020@gmail.com",
+      "password": "1995markin",
+      "role": "alumno'"
     }
   ],
   "cursos": [
     {
-      "id": "2",
-      "nombre": "Capacitacion de Nutricion deportiva",
+      "id": "1",
+      " nombre": "Instructurado de preparacion fisica deportiva",
+      "fechaDeInicio": "new Date('04/03/2024')",
+      " fechaDeFin": "new Date('29/07/2024')",
+      " horario": "Lunes, Miercoles y Viernes de 16hs a 20hs",
+      " duracion": "4 Meses"
+    },
+    {
+      "id": "8",
+      "nombre": "Capacitacion de Nutricion en deportiva",
       "fechaDeInicio": " (04/04/2024)",
       "fechaDeFin": "(30/06/2024')",
       "horario": "Martes y Jueves 15.30hs a 20.30hs",
       "duracion": "2 Meses"
     },
     {
-      "id": "3",
+      "id": "5",
       "nombre": "Instructurado de musculacion y entrenamiento funcional",
       "fechaDeInicio": "(01/04/2024')",
       "fechaDeFin": "(29/11/2024')",
       "horario": "Martes y Jueves 14hs a 17hs",
       "duracion": "8 Meses"
+    },
+    {
+      "id": "2",
+      "nombre": "Instructurado de personal trainer",
+      "fechaDeInicio": "(11/03/2024)",
+      "fechaDeFin": "('25/10/2024')",
+      "horario": "Lunes, Miercoles y viernes de 15hs a 19hs",
+      "duracion": "4 Meses"
     }
+  ],
+    "inscriptions": [
+      {
+        "id": "1",
+        "userId": "6",
+        "courseId": "4"
+      },
+      {
+        "id": "2",
+        "userId": "3",
+        "courseId": "2"
+      }
+
   ]
 }

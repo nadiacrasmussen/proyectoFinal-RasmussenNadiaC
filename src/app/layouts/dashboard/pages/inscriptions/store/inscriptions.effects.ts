@@ -5,7 +5,7 @@ import { Observable, EMPTY, of, pipe } from 'rxjs';
 import { InscriptionsActions } from './inscriptions.actions';
 
 import { UsersService } from '../../users/users.service';
-import { InscriptionsService } from './inscriptions.service';
+import { InscriptionsService } from '../inscriptions.service';
 
 
 @Injectable()

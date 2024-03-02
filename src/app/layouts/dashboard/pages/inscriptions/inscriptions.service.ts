@@ -1,10 +1,10 @@
 
-import { enviroment } from './../../../../../../enviroments/enviroments.prod';
+import { enviroment } from '../../../../../enviroments/enviroments.prod';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../../users/models';
+import { User } from '../users/models';
 import { catchError, concatMap, throwError } from 'rxjs';
-import { CreateInscriptionData, Inscription } from './models';
+import { CreateInscriptionData, Inscription } from '../inscriptions/store/models';
 
 
 @Injectable({
