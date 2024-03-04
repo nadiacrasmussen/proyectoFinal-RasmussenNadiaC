@@ -11,22 +11,26 @@ import {  HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { UsersModule } from './layouts/dashboard/pages/users/users.module';
+import { CursosModule } from './layouts/dashboard/pages/cursos/cursos.module';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent
+  declarations: [AppComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DashboardModule,
+UsersModule,
+CursosModule,
    MatFormFieldModule,
    MatProgressSpinnerModule,
    HttpClientModule,
+DashboardModule,
    StoreModule.forRoot({}, {}),
    EffectsModule.forRoot([]),
 

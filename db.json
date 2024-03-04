@@ -1,20 +1,22 @@
 {
   "users": [
     {
+      "id": "",
+      "firstName": "asfa",
+      "lastName": "afcawe",
+      "email": "macarenasartorio@gmail.com",
+      "role": "admin",
+      "password": "51566191",
+      "token": " 5zvY9"
+    },
+    {
       "id": "2",
       " firstName": "Daiana",
       "lastName": " Marquez",
       "email": "daimarquez@gmail.com",
       "password": "dai1548",
-      "role": "alumno"
-    },
-    {
-      "id": "3",
-      "firstName": "Micaela",
-      "lastName": "Ramirez",
-      "email": "ramirezmica@gmail.com",
-      "password": "lulurami",
-      "role": "alumno"
+      "role": "alumno",
+      "firstName": "julieta"
     }
   ],
   "cursos": [
@@ -59,7 +61,7 @@
     },
     {
       "id": "2",
-      "userId": "3",
+      "userId": null,
       "courseId": "2"
     }
   ]

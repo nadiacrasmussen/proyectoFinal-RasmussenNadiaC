@@ -1,19 +1,21 @@
 import { Observable, delay, map, of, tap } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { User } from '../../dashboard/pages/users/models';
 import { Router } from '@angular/router';
+import { User } from '../../dashboard/pages/users/models/index';
 
 interface loginData {
   email: string | null;
   password:  string | null;
 }
-const MOCK_USER = {
-  id: '1',
+const MOCK_USER : User =  {
+  id: 1,
   firstName: 'Macarena',
   lastName: 'Sartorio',
   email: 'macarenasartorio@gmail.com',
   password: 'ms1503',
-  role: 'ADMIN',
+  role:'admin'
+
+
 };
 
 @Injectable({ providedIn: 'root' })

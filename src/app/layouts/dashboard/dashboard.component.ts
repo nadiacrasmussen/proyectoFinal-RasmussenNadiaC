@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth/pages/auth.service';
-import { AdminGuard } from '../../core/guards/admin.guard';
+
 
 @Component({
   selector: 'app-dashboard',

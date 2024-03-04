@@ -19,7 +19,9 @@ import { InscriptionsEffects } from './store/inscriptions.effects';
   ],
   imports: [
     CommonModule,
-    InscriptionsRoutingModule,SharedModule,StoreModule.forFeature(inscriptionsFeature),EffectsModule.forFeature([InscriptionsEffects])
+    InscriptionsRoutingModule,SharedModule,
+    StoreModule.forFeature(inscriptionsFeature),
+    EffectsModule.forFeature([InscriptionsEffects])
   ]
 })
 export class InscriptionsModule { }

@@ -1,43 +1,73 @@
-import { Injectable, Pipe } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { User } from './models';
-import { Observable, delay, mergeMap, of, tap } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { User } from './models/index';
+import { Observable,  catchError, mergeMap, of, } from 'rxjs';
+import { HttpClient, } from '@angular/common/http';
 import { enviroment } from '../../../../../enviroments/enviroments';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Inscription } from '../inscriptions/store/models';
 
-let USERS_DB: User[] = [];
-let ROLES_DB: String[] = ['ADMIN', 'USER'];
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class UsersService {
-  constructor(private httpClient: HttpClient) {}
-  getUserById(id: number | string): Observable<User | undefined> {
-    return of(USERS_DB.find((user) => user.id == id)).pipe(delay(1000));
+
+  constructor(
+    private http: HttpClient,
+    private snackBar: MatSnackBar
+  ) { }
+
+  generateString(length: number) {
+    const characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = ' ';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
   }
-  getRoles(): Observable<String[]> {
-    return of(ROLES_DB).pipe(delay(1000));
+  openSnackBar(message: string, action: string): Observable<any> {
+    return this.snackBar.open(message, action, {
+      duration: 2000,
+    })
+      .onAction();
   }
-  getUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>(`${enviroment.apiUrl}/users`);
+  getUsers() {
+    return this.http.get<User[]>(`${enviroment.apiUrl}/users`).pipe(
+      catchError((error) => {
+        this.openSnackBar('Error al cargar los usuarios', 'ok');
+        return of([]);
+      })
+    )
+  }
+  ngOnInit(): void {
+    this.getUsers()
   }
 
-  createUser(payload: User) {
-    return this.httpClient.post<User>(
-      `${enviroment.apiUrl}/users`,
-      payload
-    ).pipe(mergeMap(() => this.getUsers()));
-
+  getUser(id: number | string): Observable<User | undefined> {
+    return this.http.get<User>(`${enviroment.apiUrl}/users/${id}`);
   }
 
-  updateUser(user:User){
-    return this.httpClient.put(`${enviroment.apiUrl}/users/${user.id}`,{user});
-  }
-  deleteUser(userID:string) {
-    USERS_DB = USERS_DB.filter((User) => User.id !== userID);
-    return this.httpClient.delete(`${enviroment.apiUrl}/users/${userID}`);
+  addUser(users: User): Observable<User[]> {
+    return this.http
+      .post<User>(`${enviroment.apiUrl}/users`, {
+        ...users,
+        token: this.generateString(5),
+      })
+      .pipe(mergeMap(() => this.getUsers()));
   }
 
+  updateUser(user: User): Observable<User> {
+    if (!user.id) throw Error('User is required');
+    return this.http.patch<User>(`${enviroment.apiUrl}/users/${user.id}`, user)
+  }
 
+  deleteUserbyId(id: string) {
+    return this.http.delete(`${enviroment.apiUrl}/users/${id}`)
+  }
 
   getAllSubscribers(): Observable<Inscription[]>{
-    return this.httpClient.get<Inscription[]>(`${enviroment.apiUrl}/users?role=SUBSCRIBED`)
-  };}
+    return this.http.get<Inscription[]>(`${enviroment.apiUrl}/users?role=subscribed`)
+  }
+
+}

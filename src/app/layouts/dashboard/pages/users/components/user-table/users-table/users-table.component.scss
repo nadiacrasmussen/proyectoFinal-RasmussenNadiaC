@@ -1,0 +1,14 @@
+.loading-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mat-mdc-raised-button:not(:disabled) {
+  padding: 20px;
+  margin-top: 10px;
+}
+.add-button-container {
+display: flex;
+justify-content: end;
+}

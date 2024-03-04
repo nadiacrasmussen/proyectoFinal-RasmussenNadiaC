@@ -1,7 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { UsersComponent } from './users.component';
-import { PagesDetailsComponent } from './components/pages-details/pages-details.component';
+
 
 @NgModule({
   imports:[

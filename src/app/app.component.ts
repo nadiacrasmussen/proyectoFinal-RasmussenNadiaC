@@ -1,7 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { loadingService } from './core/service/loading.service';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
+
 
 
 
@@ -10,16 +11,11 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
- export class AppComponent implements OnInit {
+ export class AppComponent  {
   title = 'proyectoFinal';
 
-  isLoading : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
- constructor( private LoadingService: loadingService)  {}
- get isLoading$(){ return this.isLoading.asObservable()}
+  isLoading  = false;
+  constructor(){}
 
-  ngOnInit(): void {
-    this.LoadingService.isLoading$.subscribe(
-      (v:boolean)=> this.isLoading.next(v)
-    );
-  }
-}
+
+ }

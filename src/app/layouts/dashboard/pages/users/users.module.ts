@@ -14,9 +14,13 @@ import { UsersService } from './users.service';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { UserRoutingModule } from './user-routing.module';
+import { loadingService } from '../../../../core/service/loading.service';
+import { UsersTableComponent } from './components/user-table/users-table/users-table.component';
+import { UserDetailComponent } from './components/user-detail/user-detail/user-detail.component';
+
 
 @NgModule({
-  declarations: [UsersComponent, UserFormComponent],
+  declarations: [UsersComponent, UserFormComponent, UsersTableComponent, UserDetailComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -34,14 +38,16 @@ import { UserRoutingModule } from './user-routing.module';
 
 
   ],
-  exports: [UsersComponent],
+  exports: [UsersComponent,UserDetailComponent,UserFormComponent,UsersTableComponent,],
   providers: [
     UsersService,
+    loadingService,
 
     {
       provide: 'USER_TOKEN',
       useValue: '1234',
     },
   ],
+
 })
 export class UsersModule {}

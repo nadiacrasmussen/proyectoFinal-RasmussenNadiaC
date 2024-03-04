@@ -9,9 +9,12 @@ import { UsersModule } from './pages/users/users.module';
 import { RouterModule,Routes } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './pages/home/home.component';
-import { AdminGuard } from '../../core/guards/admin.guard';
+
 import { AuthGuard } from '../../core/guards/auth.guard';
 import { InscriptionsModule } from './pages/inscriptions/inscriptions.module';
+import { UsersComponent } from './pages/users/users.component';
+import { CursosModule } from './pages/cursos/cursos.module';
+
 
 const routes: Routes = [
   {
@@ -26,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    canActivate: [AdminGuard],
+
     loadChildren: () =>
       import('./pages/users/users.module').then((m) => m.UsersModule),
   },
@@ -41,20 +44,23 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/inscriptions/inscriptions.module').then((m) => m.InscriptionsModule),
-  },
-];
+    }
+  ];
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
+    CursosModule,
     CommonModule,
+UsersModule,
     MatSidenavModule,
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    UsersModule,
     MatListModule,
-    RouterModule.forChild(routes),
+    RouterModule
+    .forChild(routes),
   ],
-  exports: [DashboardComponent],
+  exports: [DashboardComponent,
+  ],
 })
 export class DashboardModule {}

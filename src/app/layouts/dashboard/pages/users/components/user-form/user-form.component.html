@@ -1,48 +1,43 @@
-<div class="formulario">
-  <h1  appFontSize>Registrar Alumno</h1>
-  <form [formGroup]="userForm" (ngSubmit)="onsubmit()" class="example-form">
-  <table class="example-full-width" cellspacing="0">
-    <tr>
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>Nombre</mat-label>
-          <input formControlName="firstName" matInput>
-        </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>Apellido</mat-label>
-          <input formControlName="lastName" matInput>
-        </mat-form-field>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>Email</mat-label>
-          <input formControlName="email" matInput type="email">
-        </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>Contraseña</mat-label>
-          <input formControlName="password" matInput type="password">
-        </mat-form-field>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <mat-form-field class="example-full-width">
-          <mat-label>Role</mat-label>
-          <mat-select formControlName="role" [(value)]="selected">
-            <mat-option value="Alumno">Alumno</mat-option>
-            <mat-option value="Profesor">Profesor</mat-option>
-            <mat-option value="Admin">Admin</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </td>
-    </tr>
-  </table>
-  <button mat-flat-button class="registrar">Registrar</button>
-</form>
+<h1 mat-dialog-title> Usuarios</h1>
+<div mat-dialog-content class="form-user">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid formgrid">
+    <div>
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input formControlName="firstName" matInput type="text" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Apellido</mat-label>
+        <input formControlName="lastName" matInput type="text" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput type="email" required />
+      </mat-form-field>
+    </div>
+    <mat-form-field>
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option value="admin">Admin</mat-option>
+        <mat-option value="user">User</mat-option>
+        <mat-option value="subscribed">Alumno</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <mat-form-field>
+        <mat-label>Contraseña</mat-label>
+        <input formControlName="password" matInput type="password" required />
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close color="primary">Cancelar</button>
+      <button mat-button color="primary" >Guardar</button>
+
+    </div>
+  </form>
 </div>
