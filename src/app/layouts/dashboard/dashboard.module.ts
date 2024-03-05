@@ -9,11 +9,11 @@ import { UsersModule } from './pages/users/users.module';
 import { RouterModule,Routes } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './pages/home/home.component';
-
 import { AuthGuard } from '../../core/guards/auth.guard';
 import { InscriptionsModule } from './pages/inscriptions/inscriptions.module';
 import { UsersComponent } from './pages/users/users.component';
 import { CursosModule } from './pages/cursos/cursos.module';
+
 
 
 const routes: Routes = [
@@ -47,7 +47,7 @@ const routes: Routes = [
     }
   ];
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent,],
   imports: [
     CursosModule,
     CommonModule,
@@ -59,6 +59,9 @@ UsersModule,
     MatListModule,
     RouterModule
     .forChild(routes),
+    InscriptionsModule,
+    CursosModule,
+
   ],
   exports: [DashboardComponent,
   ],

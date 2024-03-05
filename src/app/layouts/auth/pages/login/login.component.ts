@@ -28,6 +28,6 @@ export class LoginComponent {
       alert('usuario o contraseña incorecta');
       return;
     }
-    this.authService.login(this.loginForm.value);
+    this.authService.login(this.loginForm.value).subscribe();
   }
 }

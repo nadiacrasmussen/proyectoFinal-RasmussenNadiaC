@@ -1,62 +1,80 @@
-import { Observable, delay, map, of, tap } from 'rxjs';
+import { User } from './../../dashboard/pages/users/models/index';
+import { enviroment } from './../../../../enviroments/enviroments';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { User } from '../../dashboard/pages/users/models/index';
+import { Observable, catchError, map, of, tap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AuthActions } from '../../../core/store-auth/actions';
+import { HttpClient } from '@angular/common/http';
 
-interface loginData {
-  email: string | null;
-  password:  string | null;
+export interface LoginData {
+  email: null | string;
+  password: null | string;
 }
-const MOCK_USER : User =  {
-  id: 1,
-  firstName: 'Macarena',
-  lastName: 'Sartorio',
-  email: 'macarenasartorio@gmail.com',
-  password: 'ms1503',
-  role:'admin'
-
-
-};
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  authUser!: User | null ;
-  constructor(private Router: Router) {}
+  constructor(
+    private router: Router,
+    private _snackBar: MatSnackBar,
+    private store: Store,
+    private httpClient: HttpClient
+  ) {}
 
-  private setAuthUser(mockUser: User): void {
-    this.authUser = mockUser;
-    localStorage.setItem('token', 'ms1503');
-  }
-  get userAuthenticated(){
-    return this.authUser;
+
+  private setAuthUser(user: User): void {
+    this.store.dispatch(AuthActions.setAuthUser({ user }));
+    localStorage.setItem('token', user.token);
   }
 
-  login(data: loginData): void {
-    console.log(data);
-    console.log({MOCK_USER})
-    if (
-      data.email == MOCK_USER.email &&
-      data.password == MOCK_USER.password
-    ) {
-      this.authUser = MOCK_USER;
-      this.setAuthUser(this.authUser);
-      this.Router.navigateByUrl('/dashboard/home');
-    }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 3000,
+    });
+  }
+
+  login(data: LoginData): Observable<User[]> {
+
+    return this.httpClient
+      .get<User[]>(
+        `${enviroment.apiUrl}/users?email=${data.email}&password=${data.password}`
+      ).pipe(
+        tap((response: User[]) => {
+          console.log({response})
+          if (!!response[0]) {
+            this.setAuthUser(response[0]);
+            this.router.navigateByUrl('cursos');
+          } else {
+            this.openSnackBar('Datos incorrectos', 'Aceptar');
+          }
+        })
+      );
   }
 
   logout(): void {
-    this.authUser = null;
+    this.store.dispatch(AuthActions.logout());
+    this.router.navigate(['auth']);
     localStorage.removeItem('token');
-    this.Router.navigate(['/auth/login']);
-
   }
 
-  verifyToken():Observable<boolean>  {
-    const token =localStorage.getItem('token') || '';
-    return of(token).pipe(
-
-      map((response) => !!response),
-      tap(() => this.setAuthUser(MOCK_USER))
-    );
+  verifyToken() {
+    return this.httpClient
+      .get<User[]>(
+        `${enviroment.apiUrl}/users?token=${localStorage.getItem('token')}`
+      )
+      .pipe(
+        map((response: any) => {
+          if (response.length) {
+            this.setAuthUser(response[0]);
+            return true;
+          } else {
+            this.store.dispatch(AuthActions.logout());
+            localStorage.removeItem('token');
+            return false;
+          }
+        }),
+        catchError(() => of(false))
+      );
   }
 }

@@ -16,7 +16,7 @@ export class DashboardComponent {
      private authService:AuthService) {}
   logout():void{
     localStorage.removeItem('access-token');
-    this.router.navigate(['auth','login']);
+    this.router.navigateByUrl('/auth');
 
   }
 
