@@ -6,16 +6,16 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { Subscription } from 'rxjs';
+import { Subscription, take } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent implements OnDestroy {
+export class LoginComponent  {
   loginForm: FormGroup;
-destroy$!:Subscription;
+
   revealPassword = false;
   constructor(private fb: FormBuilder, private authService: AuthService) {
     this.loginForm = this.fb.group({
@@ -23,16 +23,16 @@ destroy$!:Subscription;
       password: new FormControl('', [Validators.required]),
     });
   }
-  ngOnDestroy(): void {
-    this.destroy$.unsubscribe();
-  }
+
   onSubmit(): void {
     if (this.loginForm.invalid) {
       this.loginForm.reset();
       alert('Usuario o contraseña incorrecta');
       return;
     }
-    this.destroy$ = this.authService.login(this.loginForm.value).subscribe();
+    this.authService.login(this.loginForm.value)
+    .pipe(take(1))
+    .subscribe();
 
   }
 }

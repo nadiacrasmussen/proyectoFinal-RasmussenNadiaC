@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PipesModule } from '../../../dashboard/pages/pipes/pipes.module';
+import { SharedModule } from '../../../../shared/shared.module';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -21,7 +22,7 @@ describe('LoginComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
       imports: [ReactiveFormsModule,MatCardModule,MatFormFieldModule,
-        MatInputModule,
+        MatInputModule,SharedModule,
         MatIconModule,PipesModule],
       providers: [{ provide: AuthService, useValue: authServiceSpy }],
     }).compileComponents();
@@ -32,24 +33,23 @@ describe('LoginComponent', () => {
 
   });
 
-  it('should create the component', () => {
+ it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
   it('Debe llamar authService.login con datos correctos y debolver un arreglo con un usuario', () => {
     const testUserData = { email: 'ramirezmica@gmail.com', password: 'lulurami' };
-    const userResponse :User =  {"id": "3",
+    const userResponse :User =  {"id": 3,
     "firstName": "Micaela",
     "lastName": "Ramirez",
     "email": "ramirezmica@gmail.com",
     "password": "lulurami",
     "role": "alumno",
-  "token":""}
+    "token":""}
     authService.login.and.returnValue(of([userResponse]));
-
     component.loginForm.setValue(testUserData);
     component.onSubmit();
-    expect(component.destroy$).toBeDefined();
+
 
     expect(authService.login).toHaveBeenCalledWith(testUserData);
   });
@@ -57,16 +57,12 @@ describe('LoginComponent', () => {
   it('Debe de resetear el formulario y mostrar un alert Usuario o contraseña incorrecta', () => {
     const alertSpy = spyOn(window, 'alert');
     const invalidUserData = { email: 'test@example.com', password: '' };
-
     component.loginForm.setValue(invalidUserData);
     component.onSubmit();
-component.loginForm.reset();
+   component.loginForm.reset();
     expect(component.loginForm.value).toEqual({ email: null, password: null });
     expect(alertSpy).toHaveBeenCalledWith('Usuario o contraseña incorrecta');
   });
 
-  it('debe desuscribirse de la subscripcio cuando el componente se destruya', () => {
-    component.ngOnDestroy();
-    expect(component.destroy$.unsubscribe).toBeTruthy();
-  });
+
 });
