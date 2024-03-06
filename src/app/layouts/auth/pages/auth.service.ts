@@ -7,11 +7,13 @@ import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AuthActions } from '../../../core/store-auth/actions';
 import { HttpClient } from '@angular/common/http';
+import { Mock } from 'ng-mocks';
 
 export interface LoginData {
   email: null | string;
   password: null | string;
 }
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
