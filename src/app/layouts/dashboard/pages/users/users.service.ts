@@ -52,7 +52,7 @@ export class UsersService {
     return this.http
       .post<User>(`${enviroment.apiUrl}/users`, {
         ...users,
-        token: this.generateString(5),
+        token: this.generateString(5),id:new Date().valueOf().toLocaleString()
       })
       .pipe(mergeMap(() => this.getUsers()));
   }

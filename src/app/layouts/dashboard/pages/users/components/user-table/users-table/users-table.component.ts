@@ -75,7 +75,7 @@ export class UsersTableComponent implements OnInit {
     const action = "Sí";
 
     this.openSnackBar(message, action).subscribe(() => {
-      this.isLoading = true;
+
       this.usersService.deleteUserbyId(id).subscribe(
         (response) => {
           this.getUsers()

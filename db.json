@@ -1,31 +1,45 @@
 {
   "users": [
     {
-      "id": "",
-      "firstName": "asfa",
-      "lastName": "afcawe",
-      "email": "macarenasartorio@gmail.com",
-      "role": "admin",
-      "password": "51566191",
-      "token": " 5zvY9"
+      "id": "1",
+      "firstName": "Nadia",
+      "lastName": "Rasmussen",
+      "email": "nadiacrasmussen@gmail.com",
+      "password": "nadia123",
+      "role": "alumno"
     },
     {
-      "id": "",
-      "firstName": "armando",
-      "lastName": "gil",
-      "email": "macarenasartorio@gmail.com",
+      "id": "8",
+      "firstName": "nadia",
+      "lastName": "resnm",
+      "email": "adri.o@gmail.com",
       "role": "user",
-      "password": "5120",
-      "token": " Nu4sv"
+      "password": "acads",
+      "token": " SBdQH"
     },
     {
-      "id": "",
-      "firstName": "mariana",
-      "lastName": "troncoso",
-      "email": "mariii@gmail.com",
-      "role": "subscribed",
+      "id": "3",
+      "firstName": "Micaela",
+      "lastName": "Ramirez",
+      "email": "ramirezmica@gmail.com",
+      "password": "lulurami",
+      "role": "alumno"
+    },
+    {
+      "id": "4",
+      "firstName": "Julieta",
+      "lastName": "perez",
+      "email": "julizagame@gmail.com",
+      "password": "julieta55",
+      "role": "alumno'"
+    },
+    {
+      "id": "6",
+      "firstName": "Julieta",
+      "lastName": "perez",
+      "email": "macarenasartorio@gmail.com",
       "password": "5120",
-      "token": " 8nwQs"
+      "role": "alumno'"
     }
   ],
   "cursos": [
