@@ -32,13 +32,15 @@ get currentCurso(): Curso {
 
 ngOnInit(): void {
   this.addCursosForm = new FormGroup({
-    "courseName": new FormControl(""),
-    "createdAt": new FormControl(""),
+    "cursos": new FormControl(""),
+    "fechaDeInicio": new FormControl(""),
+    "fechaDeFin": new FormControl(""),
   });
 
   if (this.data?.curso) {
-    this.addCursosForm.get('courseName')?.setValue(this.data.curso.courseName)
-    this.addCursosForm.get('createdAt')?.setValue(this.data.curso.createdAt)
+    this.addCursosForm.get('cursos')?.setValue(this.data.curso.cursos)
+    this.addCursosForm.get('fechaDeInicio')?.setValue(this.data.curso.fechaDeInicio)
+    this.addCursosForm.get('fechaDeFin')?.setValue(this.data.curso.fechaDeFin)
   }
 }
 
