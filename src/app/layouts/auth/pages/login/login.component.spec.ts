@@ -1,8 +1,14 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { LoginComponent } from './login.component';
-import { ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService, LoginData } from '../auth.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../auth.service';
 import { of } from 'rxjs';
+import { User } from '../../../dashboard/pages/users/models';
+import {  MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { PipesModule } from '../../../dashboard/pages/pipes/pipes.module';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -14,59 +20,53 @@ describe('LoginComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [LoginComponent],
-      imports: [ReactiveFormsModule],
-      providers: [{ provide: AuthService, useValue: authServiceSpy }]
+      imports: [ReactiveFormsModule,MatCardModule,MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,PipesModule],
+      providers: [{ provide: AuthService, useValue: authServiceSpy }],
     }).compileComponents();
 
+    authService = TestBed.inject(AuthService) as jasmine.SpyObj<AuthService>;
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
-    authService = TestBed.inject(AuthService) as jasmine.SpyObj<AuthService>;
+
   });
 
-  it('debe instanciarse correctamente', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('debe validar que el email y la contraseña sean requeridos', () => {
-    const emailControl = component.loginForm.get('email');
-    const passwordControl = component.loginForm.get('password');
+  it('Debe llamar authService.login con datos correctos y debolver un arreglo con un usuario', () => {
+    const testUserData = { email: 'ramirezmica@gmail.com', password: 'lulurami' };
+    const userResponse :User =  {"id": "3",
+    "firstName": "Micaela",
+    "lastName": "Ramirez",
+    "email": "ramirezmica@gmail.com",
+    "password": "lulurami",
+    "role": "alumno",
+  "token":""}
+    authService.login.and.returnValue(of([userResponse]));
 
-    expect(emailControl?.hasValidator(Validators.required)).toBeTrue();
-    expect(passwordControl?.hasValidator(Validators.required)).toBeTrue();
+    component.loginForm.setValue(testUserData);
+    component.onSubmit();
+    expect(component.destroy$).toBeDefined();
+
+    expect(authService.login).toHaveBeenCalledWith(testUserData);
   });
 
-  it('debe marcar los campos del formulario como touched al llamar onSubmit con formulario inválido', () => {
-    const emailControl = component.loginForm.get('email');
-    const passwordControl = component.loginForm.get('password');
+  it('Debe de resetear el formulario y mostrar un alert Usuario o contraseña incorrecta', () => {
+    const alertSpy = spyOn(window, 'alert');
+    const invalidUserData = { email: 'test@example.com', password: '' };
 
-    emailControl?.setValue('');
-    passwordControl?.setValue('');
-
-    expect(component.loginForm.invalid).toBeTrue();
-
-    const markAllAsTouchedSpy = spyOn(component.loginForm, 'markAllAsTouched');
-
+    component.loginForm.setValue(invalidUserData);
     component.onSubmit();
-
-    expect(markAllAsTouchedSpy).toHaveBeenCalled();
+component.loginForm.reset();
+    expect(component.loginForm.value).toEqual({ email: null, password: null });
+    expect(alertSpy).toHaveBeenCalledWith('Usuario o contraseña incorrecta');
   });
 
-  it('debe llamar al método login del AuthService al llamar onSubmit con formulario válido', () => {
-    const email = 'test@example.com';
-    const password = 'password';
-    const loginResponse = {};
-    // Configura los valores del formulario
-    component.loginForm.patchValue({
-      email: email,
-      password: password
-    });
-
-
-
-    // Llama al método onSubmit
-    component.onSubmit();
-
-    // Verifica si el método login del servicio ha sido llamado con los valores correctos
-    expect(authService.login).toHaveBeenCalledWith({ email: email, password: password });
+  it('debe desuscribirse de la subscripcio cuando el componente se destruya', () => {
+    component.ngOnDestroy();
+    expect(component.destroy$.unsubscribe).toBeTruthy();
   });
 });

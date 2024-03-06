@@ -1,7 +1,6 @@
 
-import { Component, OnInit } from '@angular/core';
-import { loadingService } from './core/service/loading.service';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
+
 
 
 
@@ -12,7 +11,7 @@ import { Observable } from 'rxjs';
   styleUrl: './app.component.scss'
 })
  export class AppComponent  {
-  title = 'proyectoFinal';
+
 
   isLoading  = false;
   constructor(){}

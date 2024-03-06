@@ -29,7 +29,7 @@ destroy$!:Subscription;
   onSubmit(): void {
     if (this.loginForm.invalid) {
       this.loginForm.reset();
-      alert('usuario o contraseña incorecta');
+      alert('Usuario o contraseña incorrecta');
       return;
     }
     this.destroy$ = this.authService.login(this.loginForm.value).subscribe();
