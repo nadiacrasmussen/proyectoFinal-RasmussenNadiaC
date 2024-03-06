@@ -13,7 +13,7 @@ import { CursosService } from '../../cursos.service';
 export class TableCursosComponent {
   isLoading!: boolean;
   mostrarFormulario: boolean = true;
-  displayedColumns = ['id', 'courseName', 'createdAt', 'actions']
+  displayedColumns = ['id', 'cursos', 'fechaDeInicio', 'fechaDeFin','horario','duracion','inscripcion']
   datasource: Curso[] = []
 
 
