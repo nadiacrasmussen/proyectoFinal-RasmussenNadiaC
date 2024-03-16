@@ -14,8 +14,7 @@
       "lastName": "resnm",
       "email": "adri.o@gmail.com",
       "role": "user",
-      "password": "acads",
-      "token": " SBdQH"
+      "password": "acads"
     },
     {
       "id": "3",
@@ -31,10 +30,10 @@
       "lastName": "perez",
       "email": "julizagame@gmail.com",
       "password": "julieta55",
-      "role": "alumno'"
+      "role": "subscribed"
     }
   ],
-  "cursos": [
+  "courses": [
     {
       "id": "1",
       "nombre": "Instructurado de preparacion fisica deportiva",
@@ -62,17 +61,42 @@
       "fechaDeInicio": "(11/03/2024)",
       "horario": "Lunes, Miercoles y viernes de 15hs a 19hs",
       "duracion": "4 Meses"
+    },
+    {
+      "id": "938f",
+      "nombre": "",
+      "fechaDeInicio": "2024-03-20T03:00:00.000Z"
+    },
+    {
+      "id": "2607",
+      "nombre": "",
+      "fechaDeInicio": "2024-03-21T03:00:00.000Z"
+    },
+    {
+      "id": "b301",
+      "nombre": "",
+      "fechaDeInicio": "2024-03-11T03:00:00.000Z"
+    },
+    {
+      "id": "fb0a",
+      "cursos": "asfas",
+      "fechaDeInicio": "2024-03-11T03:00:00.000Z"
+    },
+    {
+      "id": "6a56",
+      "cursos": "sdcfas",
+      "fechaDeInicio": "2024-03-26T03:00:00.000Z"
     }
   ],
   "inscriptions": [
     {
       "id": "1",
-      "userId": null,
+      "userId": 8,
       "courseId": "4"
     },
     {
       "id": "2",
-      "userId": null,
+      "userId": 3,
       "courseId": "2"
     }
   ]

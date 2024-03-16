@@ -14,7 +14,7 @@ export class CursosService {
 
 
   getCursos() {
-    return this.http.get(`${enviroment.apiUrl}/cursos`)
+    return this.http.get<Curso[]>(`${enviroment.apiUrl}/courses`)
   }
 
   getCurso(curso_id: any) {
@@ -22,15 +22,15 @@ export class CursosService {
   }
 
   addCurso(curso: Curso): Observable<Curso> {
-    return this.http.post<Curso>(`${enviroment.apiUrl}/cursos`, curso)
+    return this.http.post<Curso>(`${enviroment.apiUrl}/courses`, curso)
   }
 
   updateCurso(curso_id:number, curso: Curso): Observable<Curso> {
-    return this.http.patch<Curso>(`${enviroment.apiUrl}/cursos/${curso_id}`, curso)
+    return this.http.patch<Curso>(`${enviroment.apiUrl}/courses/${curso_id}`, curso)
   }
 
   deleteCursobyId(id: string) {
-    return this.http.delete(`${enviroment.apiUrl}/cursos/${id}`)
+    return this.http.delete(`${enviroment.apiUrl}/courses/${id}`)
   }
 
 }

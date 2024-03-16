@@ -37,7 +37,7 @@
               "src/assets"
             ],
             "styles": [
-         "node_modules/primeflex/primeflex.min.css",
+              "node_modules/primeflex/primeflex.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -45,8 +45,10 @@
           "configurations": {
             "production": {
               "fileReplacements": [
-                {"replace": "src/enviroments/enviroments.ts",
-              "with": "src/enviroments/enviroments.prod.ts"}
+                {
+                  "replace": "src/enviroments/enviroments.ts",
+                  "with": "src/enviroments/enviroments.prod.ts"
+                }
               ],
               "budgets": [
                 {
@@ -109,5 +111,10 @@
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
   }
 }

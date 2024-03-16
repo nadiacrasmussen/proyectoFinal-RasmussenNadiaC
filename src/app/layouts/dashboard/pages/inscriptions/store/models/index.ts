@@ -4,9 +4,9 @@ import { Curso } from '../../../cursos/models/index';
 export interface Inscription {
   id: string | number;
   userId: string | number;
-  productId: string | number;
+  cursoId: string | number;
   user?: User;
-  course?: Curso;
+  Curso?: Curso;
 }
 
 export interface CreateInscriptionData {

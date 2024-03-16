@@ -1,3 +1,4 @@
+
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromInscriptions from './inscriptions.reduce';
 
@@ -19,4 +20,8 @@ export const selectInscriptionIsLoading = createSelector(
 export const selectInscriptionsSubscribers = createSelector(
   selectInscriptionsState,
   (state) => state.subscribers
+)
+export const selectInscriptionCourses = createSelector(
+  selectInscriptionsState,
+  (state) => state.cursos
 )

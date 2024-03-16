@@ -16,6 +16,7 @@ import { CursosModule } from './pages/cursos/cursos.module';
 
 
 
+
 const routes: Routes = [
   {
     path: '',
@@ -47,7 +48,7 @@ const routes: Routes = [
     }
   ];
 @NgModule({
-  declarations: [DashboardComponent,],
+  declarations: [DashboardComponent, ],
   imports: [
     CursosModule,
     CommonModule,

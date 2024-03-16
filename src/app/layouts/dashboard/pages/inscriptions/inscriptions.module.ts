@@ -9,13 +9,15 @@ import { StoreModule } from '@ngrx/store';
 import { inscriptionsFeature } from './store/inscriptions.reduce';
 import { EffectsModule } from '@ngrx/effects';
 import { InscriptionsEffects } from './store/inscriptions.effects';
+import { InscriptionTableComponent } from './components/inscription-table/inscription-table/inscription-table.component';
 
 
 
 @NgModule({
   declarations: [
     InscriptionsComponent,
-    InscriptionsDialogComponent
+    InscriptionsDialogComponent,
+    InscriptionTableComponent
   ],
   imports: [
     CommonModule,
