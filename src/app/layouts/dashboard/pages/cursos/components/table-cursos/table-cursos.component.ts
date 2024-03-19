@@ -13,7 +13,7 @@ import { CursosService } from '../../cursos.service';
 export class TableCursosComponent {
   isLoading!: boolean;
   mostrarFormulario: boolean = true;
-  displayedColumns = ['id', 'courses', 'fechaDeInicio', 'fechaDeFin','horario','duracion','inscripcion']
+  displayedColumns = ['id', 'courses', 'fechaDeInicio','horario','inscripcion']
   datasource: Curso[] = []
 
 
@@ -38,6 +38,7 @@ export class TableCursosComponent {
     onCreate(): void {
       this.dialog.open(FormCursosComponent).afterClosed().subscribe({
         next: (result) => {
+          console.log({result})
           this.getCursos()
         }
       })

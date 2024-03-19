@@ -46,10 +46,11 @@ export class InscriptionsDialogComponent {
   }
 
   onSubmit(): void {
-    console.log(this.inscriptionForm.value);
+
     if (this.inscriptionForm.invalid) {
       this.inscriptionForm.markAllAsTouched();
     } else {
+      console.log({ data: this.inscriptionForm.value })
       this.store.dispatch(
         InscriptionsActions.createInscription({ data: this.inscriptionForm.value })
       );

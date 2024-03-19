@@ -31,12 +31,12 @@ export class FormCursosComponent {
 
   ngOnInit(): void {
     this.addCursosForm = new FormGroup({
-      cursos: new FormControl(''),
+      nombre: new FormControl(''),
       fechaDeInicio: new FormControl(''),
     });
 
     if (this.data?.curso) {
-      this.addCursosForm.get('cursos')?.setValue(this.data.curso.cursos);
+      this.addCursosForm.get('nombre')?.setValue(this.data.curso.nombre);
       this.addCursosForm
         .get('fechaDeInicio')
         ?.setValue(this.data.curso.fechaDeInicio);
@@ -55,7 +55,10 @@ export class FormCursosComponent {
         });
       return;
     } else {
+
+
       this.cursosService.addCurso(this.currentCurso).subscribe((response) => {
+
         this.isLoading = false;
         this.dialogRef.close();
       });

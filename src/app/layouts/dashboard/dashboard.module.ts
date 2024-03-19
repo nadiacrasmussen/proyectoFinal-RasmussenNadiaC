@@ -42,7 +42,7 @@ const routes: Routes = [
   },
   {
     path: 'inscriptions',
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/inscriptions/inscriptions.module').then((m) => m.InscriptionsModule),
     }

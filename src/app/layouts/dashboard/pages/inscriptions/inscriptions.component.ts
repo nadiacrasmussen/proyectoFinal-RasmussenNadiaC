@@ -34,9 +34,15 @@ export class InscriptionsComponent implements OnDestroy {
     this.store.dispatch(InscriptionsActions.loadInscriptions());
   }
   createInscription(): void {
-    this.matDialog.open(InscriptionsDialogComponent);
+    this.matDialog.open(InscriptionsDialogComponent).afterClosed().subscribe({
+      next: (result) => {
+        console.log({result})
+        this.store.dispatch(InscriptionsActions.loadInscriptions());
+      }
+    });
   }
   ngOnDestroy(): void {
     throw new Error('Method not implemented.');
+    // TO DO : DESUSCRIBIRSE DE TODAS LAS SUBSCRIPCIONES
   }
 }
